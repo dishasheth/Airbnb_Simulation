@@ -1,0 +1,136 @@
+<style>
+    .left {
+        float:left;
+    }
+
+    .right {
+        float:right;
+    }
+
+    .center {
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    #language {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #currency {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #room_type, #property {
+        border-radius: 3px;
+        width: 250px;
+        height: 40px;
+    }
+
+    #location {
+        border-radius: 3px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .rightcol {
+        /* position: fixed;
+         top: 0%;
+         left: 0%; */
+        overflow:hidden;
+    }
+
+    .leftcol {
+        /* border:solid 1px red;
+        position: relative;
+        top: 0%;
+        left: 50%;  */
+        overflow-y: scroll;
+        height: 280px;
+    }
+
+
+    .card {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+        border: 1px solid #778899;
+        background-color: #FFFFF0;
+        text-align: left;;
+        border-radius: 5px;
+        height: 320px;
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+</style>
+<div ng-controller="pricecontroller">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="3.html">AirBNB</a>
+        </div>
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<div class="modal-body-row row-lg-7">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-lg-5 leftcol">
+        <div class="row-md-4 center">
+        </div>
+        <br>
+        <div class="row-md-4 form-group">
+            <div class="row-lg-12 " >
+                <h3>Smart Pricing</h3><hr>
+                <h4>Set a price </h4>
+                <input ng-model="price" type="text" id="property">
+
+                <br><br>
+
+                <p>Your price is always up to you.</p>
+            </div>
+        </div>
+        <div class="row-md-4" >
+        </div>
+    </div>
+    <div class="col-lg-6 rightcol">
+        <div class="row-lg-4">
+        </div>
+        <div class="row-lg-4">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Image here</h4>
+                    <p class="card-text">How often you’d like to host</p>
+                    <p class="card-text">Your price can adjust to help you reach your occupancy goals. Adjusting your price doesn’t change your availability settings or block dates on your calendar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-lg-3">
+        <p>.</p>
+        <hr>
+    </div>
+    <div class="row-lg-2">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-2">
+            <a href="choose_pricing_mode.html" type="button" class="btn btn-block btn-default gradient">Back</a>
+        </div>
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-2">
+            <a href="" type="button" class="btn btn-block btn-danger gradient" ng-click="updatePrice()">Next</a>
+        </div>
+    </div>
+</div></div>

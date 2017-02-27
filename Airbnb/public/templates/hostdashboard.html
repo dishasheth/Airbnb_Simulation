@@ -1,0 +1,394 @@
+
+<div ng-controller="dashboard">
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <div class="col-md-1">
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="height:20px" style="border-bottom: transparent">
+            <ul class="nav nav-tabs" style="border-bottom: transparent">
+                <li class="active">
+                    <a ng-click="showDashboard()" data-toggle="tab" href="">Dashboard</a>
+                </li>
+                <li>
+                    <a role="tab" data-toggle="tab" href="">Stats</a>
+                </li>
+
+                <li>
+                    <a ng-click="showListing()" data-toggle="tab" href="">Your Listing</a>
+                </li>
+
+                <li>
+                    <a ng-click="showBills()" data-toggle="tab" href="">Your Reservations</a>
+                </li>
+                <li>
+                    <a role="tab" data-toggle="tab" href="">Profile</a>
+                </li>
+                <li>
+                    <a role="tab" data-toggle="tab" href="">Account</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="tab-content" style="width: 100%">
+        <div id="yourlisting" ng-hide="hidelisting">
+            <div class="row">
+                <div class="col-md-1" style="font-size:14px">
+                </div>
+                <div class="col-md-2" style="font-size:13px">
+
+                    <div class="list-group">
+                        <a href="" data-toggle="tab" ng-click="showListing()" class="list-group-item">Your Listing</a>
+                        <a href="" data-toggle="tab" ng-click="showBills()" class="list-group-item">Your
+                            Reservations</a>
+                        <a href="#" class="list-group-item">Your Bookings</a>
+                    </div>
+                </div>
+
+                <div class="col-md-7" ng-repeat="x in properties">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>{{x.details.ptitle}}</h4>
+                        </div>
+                        <div class="panel-body" style="height:220px">
+
+                            <div class="row">
+                                <div class="col-md-4" style="height:220px">
+
+                                    <img src={{x.media.images[0].img1}} style="width: 100%;height:200px">
+                                </div>
+                                <div class="col-md-8" style="height:300px">
+                                    <h4>{{x.details.description}}</h4>
+                                    <p>{{x.details.address}}</p>
+                                    <p>Price :{{x.details.price}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="tab-content" style="width: 100%">
+            <div id="approvebills" ng-hide="hideapprovebills">
+                <div class="row">
+                    <div class="col-md-1" style="font-size:14px">
+                    </div>
+                    <div class="col-md-2" style="font-size:13px">
+
+                        <div class="list-group">
+                            <a href="" ng-click="showListing()" class="list-group-item">Your Listing</a>
+                            <a href="" ng-click="showBills()" class="list-group-item">Your Reservations</a>
+                            <a href="#" class="list-group-item">Your Bookings</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7" >
+                        <div class="panel panel-default" ng-repeat="b in billing">
+                            <div class="panel-heading">
+                                <h4>{{b.ptitle}}</h4>
+                            </div>
+                            <div class="panel-body" style="height:220px">
+
+                                <div class="row">
+
+                                    <div class="col-md-12" style="height:300px">
+                                        <h4>Bill No # {{b.id}}</h4>
+                                        <p>Reservation requested by:</p>
+                                        <div class="row" style="font-size:12px">
+                                            <div class="row">
+                                                <div class="row"></div>
+
+                                                <div class="col-md-4">
+                                                    <img class="img-circle img-responsive" src="images/person1.jpg"
+                                                         alt="" style="margin-left:10%;height:60px;width:60px">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <p><b>{{b.fname}} {{b.lname}}</b></p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p>{{b.avg_rating/b.num_rating}} out of 5</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+
+
+                                                        <div class="col-md-6">
+                                                            <p>From: {{b.from_date}}</p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p>To: {{b.to_date}}</p>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="row">
+
+
+                                                        <div class="col-md-6">
+                                                            <button class="btn btn-primary" id="{{b.id}}" name={{b.id}}
+                                                                    ng-click="approvebills(this.id)">Approve request
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <button class="btn btn-primary"
+                                                                    ng-click="approvebills(false)">Reject request
+                                                            </button>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="dashboard" ng-hide="hidedashboard">
+        <div class="row">
+            <div class="col-md-1" style="font-size:14px">
+            </div>
+
+            <div class="col-md-10" style="color:#555">
+
+                <h2>Your listing Summary <span style="font-size:18px" class="glyphicon glyphicon-chevron-down"></span>
+                </h2>
+                <p>Everyone's hosting style ise different but we have some tips to help your listing standout.</p>
+                <p></p>
+                <div class="row" ng-repeat="x in properties">
+                    <hr>
+                    <p></p>
+                    <div class="col-md-12">
+                        <div class="panel" style="border:0px solid #111">
+                            <div class="row">
+                                <h4>{{x.deatils.ptitle}}</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5" style="height:220px">
+                                    <img src={{x.media.images[0].img1}} style="width: 100%;height:170px">
+                                </div>
+                                <div class="col-md-7" style="height:300px">
+                                    <h4>{{x.details.description}}</h4>
+                                    <p>{{x.details.address}}</p>
+                                    <p>&nbsp</p>
+                                    <h4>Price &nbsp&nbsp&nbsp&nbsp Calendar</h4>
+                                    <p>${{x.details.price}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 82 days open in next 3 months</p>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="panel" style="border:2px solid #bbb;height: 350px">
+                                        <p></p>
+                                        <p style="text-align: center"><b>Your minimum price</b></p>
+                                        <div ng-if="x.details.price>500">
+                                            <p>At your current price ${{x.details.price}} your listing is least likely
+                                                to
+                                                be booked</p>
+                                        </div>
+                                        <div ng-if="x.details.price<500">
+                                            <p>At your current price {{x.details.address}} your listing is most likely
+                                                to be
+                                                booked</p>
+                                        </div>
+                                        <button style="margin-top: 66%;margin-left: 30%" class="btn btn-primary">Update price</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel"  style="border:2px solid #bbb;height: 350px">
+                                        <p></p>
+                                        <p style="text-align: center"><b>More Media</b></p>
+
+                                        <p>Add more photos to your listing.Listings with 7 or more photos usually get
+                                            more
+                                            bookings</p>
+
+
+                                        <button style="margin-top: 65%;margin-left: 30%" ng-click="showMedia()" class="btn btn-primary">Add more photos</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel"  style="border:2px solid #bbb;height: 350px">
+                                        <p></p>
+                                        <p style="text-align: center"><b>Add detailed description</b></p>
+                                        <p>Users that added a more detailed description of their properties get more
+                                            interest
+                                            in their listings.</p>
+                                        <button style="margin-top: 58%;margin-left: 30%" class="btn btn-primary">Add Detailed description</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="uploads" ng-hide="hideuploads">
+        <div class="row">
+            <div class="col-md-1" style="font-size:14px">
+            </div>
+
+            <div class="col-md-10" style="color:#555">
+
+                <h2>Your listing Summary <span style="font-size:18px" class="glyphicon glyphicon-chevron-down"></span>
+                </h2>
+                <p>Everyone's hosting style ise different but we have some tips to help your listing standout.</p>
+                <p></p>
+                <div class="row" ng-repeat="x in properties">
+                    <hr>
+                    <p></p>
+                    <div class="col-md-12">
+                        <div class="panel" style="border:0px solid #111">
+                            <div class="row">
+                                <h4>{{x.deatils.ptitle}}</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5" style="height:220px">
+                                    <img src={{x.media.images[0].img1}} style="width: 100%;height:170px">
+                                </div>
+                                <div class="col-md-7" style="height:300px">
+                                    <h4>{{x.details.description}}</h4>
+                                    <p>{{x.details.address}}</p>
+                                    <p>&nbsp</p>
+                                    <h4>Price &nbsp&nbsp&nbsp&nbsp Calendar</h4>
+                                    <p>${{x.details.price}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 82 days open in next 3 months</p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row" >
+                                <p>Your images :</p>
+                                <div class="col-md-4" ng-repeat="i in x.media.images">
+                                    <div class="panel" style="border:2px solid #bbb;height: 350px">
+
+                                        <img src={{i.img1}} style="width:80%;margin-left: 10%;margin-top: 10%;height:200px">
+                                        <button style="margin-top: 10%;margin-left: 30%" class="btn btn-primary">Update image</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" >
+                                <p>Upload more images :</p>
+                                <div class="col-md-4" >
+                                    <div class="panel" style="border:2px solid #bbb;height: 350px">
+                                        <input type="file" id="upload" >
+                                        <img id="output"  style=" max-width: 160px; max-height: 120px; border: none;"/>
+                                        <button style="margin-top: 10%;margin-left: 30%" ng-click="uploadimage()" class="btn btn-primary">Upload image</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="row" >
+                                <p>Your videos :</p>
+                                <div class="col-md-4" ng-repeat="i in x.media.videos">
+                                    <div class="panel" style="border:2px solid #bbb;height: 350px">
+
+
+                                        <video width="320" height="240" controls>
+                                            <source src={{i.vid1}} type="video/mp4" id="">
+
+                                        </video>
+                                        <button style="margin-top: 10%;margin-left: 30%" class="btn btn-primary">Update image</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" >
+                                <p>Upload more videos :</p>
+                                <div class="col-md-4" >
+                                    <div class="panel" style="border:2px solid #bbb;height: 350px">
+                                        <input type="file" id="uploadvideo" >
+                                        <video width="320" height="240" controls>
+                                            <source src="" type="video/mp4" id="videoupload">
+
+                                        </video>
+
+                                        <button style="margin-top: 10%;margin-left: 30%" ng-click="uploadvideo()" class="btn btn-primary">Upload image</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>

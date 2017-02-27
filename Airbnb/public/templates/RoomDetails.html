@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!--This template is for room details for the website-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../stylesheets/bootstrap/css/bootstrap.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../stylesheets/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+
+
+        (function ($) {
+            $(document).ready(function(){
+
+                // hide .navbar first
+                $(".navbar").hide();
+
+                // fade in .navbar
+                $(function () {
+                    $(window).scroll(function () {
+                        // set distance user needs to scroll before we fadeIn navbar
+                        if ($(this).scrollTop() > 400) {
+                            $('.navbar').fadeIn();
+                        } else {
+                            $('.navbar').fadeOut();
+                        }
+                    });
+
+
+                });
+
+            });
+        }(jQuery));
+    </script>
+
+    <style>
+        /* Note: Try to remove the following lines to see the effect of CSS positioning */
+        .affix {
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container-fluid" data-spy="scroll" data-target="#main-nav">
+
+
+        <!--trial 2-->
+        <div ng-controller="ctrlRoomDetails">
+            <nav class="navbar  navbar-fixed-top navbar-inverse" role="navigation" ng-controller="ctrlRoomDetails">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#photos">Photos</a></li>
+                            <li><a href="#listing">About this listing</a></li>
+                            <li><a href="#">Reviews</a></li>
+                            <li><a href="#host">Your Host</a></li>
+                            <li><a href="#">Location</a></li>
+                        </ul>
+                        <!--<form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>-->
+                        <!--<ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Link</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                               <a href="#">Separated link</a></li>
+                                </ul>-->
+                        </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <!--trial 2-->
+
+
+
+            <!--trial-->
+
+
+
+            <div class="jumbotron" style="height: 400px;padding: 0px" id="photos" style=" background-image: url('http://placehold.it/1350x550/f00/f00');background-position: 0% 100%;background-size: cover;background-repeat: no-repeat;background-color:red;color: white;">
+                <img  ng-src="{{mainImg}}">
+                <div class="container-fluid">
+
+                    <br>
+                    <!--<br><br><br><br><br><br><br><br><br><br>-->
+                    <button class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">View Photos</button>
+
+                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img class="img-responsive" src="http://placehold.it/1200x600/555/000&text=One" alt="...">
+                                            <div class="carousel-caption">
+                                                One Image
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-responsive" src="http://placehold.it/1200x600/fffccc/000&text=Two" alt="...">
+                                            <div class="carousel-caption">
+                                                Another Image
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-responsive" src="http://placehold.it/1200x600/fcf00c/000&text=Three" alt="...">
+                                            <div class="carousel-caption">
+                                                Another Image
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- End of jumbotron with corousal-->
+            <div class="container-fluid">
+
+                <!--Start of User profile info-->
+                <div class="col-md-offset-2 col-md-2">
+                    <a ui-sref="host_profile({id:hostid})"><img src="http://placehold.it/1200x600/fffccc/000&text=Two" class="img-circle" alt="Cinque Terre" width="150" height="150"></a>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row"> <h3><b>{{ proname }}</b></h3></div>
+                    <div class="row"><h4>{{loc}}, {{locstate}}</h4> <div class="glyphicon glyphicon-star-empty"></div>
+                        <div class="row">&nbsp;&nbsp;&nbsp;
+                            <img src="../images/bed.png" height="35" width="35"/>
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+
+                            <img src="../images/users.png" height="35" width="35"/>
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
+
+                            <img src="../images/key.png" height="35" width="35" />
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="panel panel-primary" style="border: 1px solid lightgray;width: 300px" data-spy="affix" data-offset-top="400">
+                        <div class="panel-heading" style="background-color: #000000">
+                            <label style="font-size: 23px; font-family:'Microsoft Sans Serif'">
+                                ${{costpn}}
+                            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Night
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+
+                                <tbody>
+                                <tr>
+                                    <td> <label>Check In</label> </td>
+
+
+
+                                </tr>
+                                <tr>
+                                    <td> <input class="form-control" type="date" placeholder="mm/dd/yyyy" ng-model="startdate"> </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td> <label>Check Out</label> </td>
+                                    <td></td>
+                                    <td></td>
+
+
+                                </tr>
+                                <tr>
+                                    <td> <input class="form-control" type="date" placeholder="mm/dd/yyyy" ng-model="enddate"> </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>Guests</td>
+                                </tr>
+
+                                <tr>
+
+                                    <td> <select class="form-control" ng-model="guests">
+                                        <option>1 Guest</option>
+                                        <option>2 Guest</option>
+                                        <option>3 Guest</option>
+                                        <option>4 Guest</option>
+                                        <option>5 Guest</option>
+                                        <option>6 Guest</option>
+                                        <option>7 Guest</option>
+                                        <option>8 Guest</option>
+                                        <option>9 Guest</option>
+                                    </select> </td>
+                                    <td>  </td>
+                                    <td>  </td>
+
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                            <button class="btn" style="background-color: #ff5a5f; width: 100%;color: white" ng-click="roomdet()"><b>Instant Booking</b></button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-1">
+
+                </div>
+
+
+                <!--End of User info block -->
+
+            </div>
+
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+
+            <div class="container-fluid" id="listing">
+                <div class="col-md-offset-2 col-md-8">
+                    <strong><p>About the listing</p></strong>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-offset-2 col-md-6" style="color: #484848;">
+                    {{description}}
+                    <div id="demo" class="collapse">
+                        {{description}}
+                    </div>
+                    <div class="btn-link" data-toggle="collapse" data-target="#demo">Read More</div>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <!--End of User info container-->
+            <hr class="col-md-offset-2 col-md-8">
+            <div class="col-md-2"></div>
+            <br>
+
+
+            <div class="container-fluid">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">The Space</div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">Amenities</div>
+                        <div class="col-md-3">
+                            <img src="../images/home.png" height="30" width="30"/>
+
+                            Homely Feel</div>
+                        <div class="col-md-3"><img src="../images/laptop.png" height="30" width="30"/>
+                            Laptop Friendly</div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">
+                            <img src="../images/gamepad.png" height="30" width="30"/> Gaming Console</div>
+
+                        <div class="col-md-3"><img src="../images/rss.png" height="25" width="25"/>
+
+                            WiFi</div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3"><img src="../images/gymnastics.png" height="25" width="25"/>
+
+
+                            In-house Gym</div>
+                        <div class="col-md-3"><img src="../images/cooking.png" height="25" width="25"/>
+
+                            Kitchen</div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3"><img src="../images/television.png" height="25" width="25"/>
+
+                            Cable TV</div>
+                        <div class="col-md-3"><img src="../images/workplace.png" height="25" width="25"/>
+                            Study/Work Table
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">Prices</div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">Description</div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">House Rules</div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">Safety Features</div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <hr class="col-md-offset-2 col-md-8">
+            <br>
+            <br>
+
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="row">
+                        <div class="col-md-2">Availability</div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">Accomodates : {{}}</div>
+                        <div class="col-md-3">Check In : {{}}</div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="col-md-2"></div>
+            <hr>
+            <br>
+            <br>
+
+            <!--Host Information-->
+            <strong><label id="host" class="col-md-offset-2 col-md-1">Your Host</label></strong>
+            <div class="col-md-9"></div>
+            <hr class="col-md-offset-2 col-md-8">
+
+
+
+
+            <div class="container-fluid">
+                <div class="col-md-offset-2 col-md-2">
+                    <img src="http://placehold.it/1200x600/fffccc/000&text=Two" class="img-circle" alt="Cinque Terre" width="120" height="120" style="border: double">
+                </div>
+                <div class="col-md-4" style="color: #484848;font-family: Verdana">
+                    <div class="row"><h4><b>{{NAME}}</b></h4></div>
+                    <div class="row"><h5><b style="">place</b></h5></div>
+                    <div class="row">I live in the house with my family,I have my wife and my four kids ,we live in our complete 2 bedroom apartment #4, we don't use outside bathrooms and my kids they are most the day in the school and in the weekend we go out to the parks ,mountains ,beach ,theme parks or malls .
+                        You don't have to be worried about the noise because they are very nice kids.</div>
+                    <br>
+                    <div class="row">Response rate : {{}}</div>
+                    <div class="row">Response time : {{}}</div>
+
+                    <br>
+                    <br>
+                    <div class="row"><label class="label label-warning" style="height: 25px;"> {{number}}</label> Reviews
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <img src="../images/checked.png" height="25" width="25"/> Verified
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+        <!--Host Information ends-->
+        </body>
+        </html>

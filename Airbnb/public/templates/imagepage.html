@@ -1,0 +1,191 @@
+
+<style>
+    .left {
+        float:left;
+    }
+
+    .right {
+        float:right;
+    }
+
+    .center {
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    #language {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #currency {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #room_type, #property {
+        border-radius: 3px;
+        width: 250px;
+        height: 40px;
+    }
+
+    #location {
+        border-radius: 3px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .rightcol {
+        /* position: fixed;
+         top: 0%;
+         left: 0%; */
+        overflow:hidden;
+    }
+
+    .leftcol {
+        /* border:solid 1px red;
+        position: relative;
+        top: 0%;
+        left: 50%;  */
+        overflow-y: scroll;
+        height: 280px;
+    }
+
+    /* layout.css Style */
+    .upload-drop-zone {
+        height: 200px;
+        border-width: 2px;
+        margin-bottom: 20px;
+    }
+
+    /* skin.css Style*/
+    .upload-drop-zone {
+        color: #ccc;
+        border-style: dashed;
+        border-color: #ccc;
+        line-height: 200px;
+        text-align: center
+    }
+    .upload-drop-zone.drop {
+        color: #222;
+        border-color: #222;
+    }
+
+    .thinned {
+        width: 700px;
+    }
+
+
+    .card {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+        border: 1px solid #778899;
+        background-color: #FFFFF0;
+        text-align: left;;
+        border-radius: 5px;
+        height: 320px;
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+</style>
+<div ng-controller="imagecontroller">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="3.html">AirBNB</a>
+        </div>
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<div class="row-lg-6">
+    <div class="col-lg-3"></div>
+    <div class="container row-lg-6 thinned">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Upload Photos</strong></div>
+            <div class="panel-body">
+
+                <!-- Standar Form -->
+                <h4>Select files from your computer</h4>
+
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="file" name="upload" id="upload" >
+                        </div>
+                        <button  ng-click="uploadimage()" class="btn btn-sm btn-primary" >Upload photos</button>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <img src="" name="output" id="output" >
+                        </div>
+                    </div>
+
+
+            </div> <!-- /container -->
+        </div>
+        <div class="row-lg-2">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-2">
+                <a href="title.html" type="button" class="btn btn-block btn-default gradient">Back</a>
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-2">
+                <a href="" type="button" class="btn btn-block btn-danger gradient" ng-click="next()">Next</a>
+            </div>
+        </div>
+
+<script>
+    + function($) {
+        'use strict';
+
+        // UPLOAD CLASS DEFINITION
+        // ======================
+
+        var dropZone = document.getElementById('drop-zone');
+        var uploadForm = document.getElementById('js-upload-form');
+
+        var startUpload = function(files) {
+            console.log(files)
+        }
+
+        uploadForm.addEventListener('submit', function(e) {
+            var uploadFiles = document.getElementById('js-upload-files').files;
+            e.preventDefault()
+
+            startUpload(uploadFiles)
+        })
+
+        dropZone.ondrop = function(e) {
+            e.preventDefault();
+            this.className = 'upload-drop-zone';
+
+            startUpload(e.dataTransfer.files)
+        }
+
+        dropZone.ondragover = function() {
+            this.className = 'upload-drop-zone drop';
+            return false;
+        }
+
+        dropZone.ondragleave = function() {
+            this.className = 'upload-drop-zone';
+            return false;
+        }
+
+    }(jQuery);
+</script>
+    </div>
+</div>
+</div>

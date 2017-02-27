@@ -1,0 +1,157 @@
+<div ng-include="'./templates/NavigationBar.html'"></div>
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../stylesheets/bootstrap/css/bootstrap.css">
+    <script src="../stylesheets/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>-->
+
+
+<div style="padding-top: 20px" ng-controller="ProdCtrl">
+<div class="col-md-7">
+    <div class="row" style="padding-top: 20px">
+        <div class="col-md-3">
+            <label style="font-size: 15px;">Dates</label>
+        </div>
+        <div class="col-md-3">
+            <input type="date" class="form-control" style="width: 200px;border-color: #737373" placeholder="Check In" ng-model="start">
+        </div>
+        <div class="col-md-3">
+            <input type="date" class="form-control" style="width: 200px;border-color: #737373" placeholder="Check Out" ng-model="end">
+        </div>
+        <div class="col-md-3">
+
+            <select class="ui dropdown form-control" style="padding-left: 20px;margin-left: 20px;width:120px;border: transparent;" placeholder="Select.." ng-model="guest">
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests">2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4 Guests">4 Guests</option>
+                <option value="5 Guests">5 Guests</option>
+                <option value="6 Guests">6 Guests</option>
+                <option value="7 Guests">7 Guests</option>
+                <option value="8 Guests">8 Guests</option>
+                <option value="9 Guests">9 Guests</option>
+                <option value="10 Guests">10 Guests</option>
+                <option value="10+ Guests">10+ Guests</option>
+            </select>
+        </div>
+    </div>
+    <hr style="border-color: #999999">
+    <div class="row">
+        <div class="col-md-3">
+            <label style="font-size: 15px;">Room type</label>
+        </div>
+        <div class="col-md-3">
+          <div class="btn btn-primary btn-group" style="vertical-align: middle;background-color: #e4e4e4;border-color:#dadada;width: 100%">
+                <label style="color: #555555">Entire home</label>
+             <input type="checkbox" ng-click="value1('Entire')">
+          </div>
+        </div>
+        <div class="col-md-3">
+            <div class="btn btn-primary btn-group" style="vertical-align: middle;background-color: #e4e4e4;border-color:#dadada;width: 100%">
+                <label style="color: #555555">Private room</label>
+                <input type="checkbox" ng-click="value1('Private')">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="btn btn-primary btn-group" style="vertical-align: middle;background-color: #e4e4e4;border-color:#dadada;width: 100%">
+                <label style="color: #555555">Shared room</label>
+                <input type="checkbox" ng-click="value1('Shared')">
+            </div>
+        </div>
+    </div>
+    <hr style="border-color: #999999">
+
+    <div class="row">
+        <div class="col-md-3">
+            <label style="font-size: 15px;">Price range</label>
+        </div>
+
+
+        <div class="col-md-1">
+
+           <input class="form-control" type="text" min="10" max="100" ng-model="range1">
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-1">
+            <input class="form-control" type="text" min="100" max="400" ng-model="range2">
+        </div>
+    </div>
+
+    <hr style="border-color: #999999">
+    <div class="col-md-offset-5 col-md-2">
+        <button class="btn btn-danger" ng-click="filter()">Modify Search</button>
+    </div>
+
+    <div class="panel col-md-6" ng-repeat="x in roomdetails">
+        <a ui-sref="room_details({id:x.id,startdate:start,enddate:end,guests:guest})">
+            <img class="img-thumbnail" src={{x.path}} style="border: 0px;padding-top: 15px;width: 100%;height: auto">
+        </a>
+        <div class="row col-md-12">
+            ${{x.price}}/night
+        </div>
+    </div>
+
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 37.397, lng: -121.892},
+                zoom: 8
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcAS5gSiuYA7DKQNK1DOQ-id-nYuv2aCY&callback=initMap"
+            async defer></script>
+
+<div class="col-md-5" id="map"></div>
+
+<!--<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 37.397, lng: -121.892},
+            zoom: 8
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcAS5gSiuYA7DKQNK1DOQ-id-nYuv2aCY&callback=initMap"
+        async defer></script>-->
+</div>
+<!--
+
+</body>
+</html>-->

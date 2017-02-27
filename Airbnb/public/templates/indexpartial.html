@@ -1,0 +1,132 @@
+
+
+
+<div ng-include="'./templates/NavigationBar.html'"></div>
+<div ng-controller="TestCtrl">
+<div class="col-md-offset-1 col-md-8">
+    <h1 style="padding-top: 20px;padding-bottom: 20px">
+        <span style="color: #FF5A5F;font-weight: 700;font-size: 48px">Live there.</span>
+        <span style="color: #484848;font-weight:100;letter-spacing:-0.8px;font-size: 48px;">Book unique homes and experience a city like a local.</span>
+    </h1>
+
+</div>
+<div class="col-md-offset-1">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+
+            <div class="panel-body" style="margin-left: 20px;margin-right: 20px">
+                <div class="row">
+                    <label>Where</label>
+
+                </div>
+                <div class="row">
+                    <input type="text" class="form-control" placeholder="Destination,city,address"  ng-autocomplete="result1" details="details1" options="options1" ng-model="journey.place">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4" style="margin-left: -31px;margin-right: -50px">
+        <!--<input type="text" class="form-control" style="z-index:0;height: 100px">-->
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <div class="row">
+                    <label style="padding-left: 15px;padding-right: 20px">When</label>
+
+                </div>
+               <!-- <div class="col-md-5">
+                    <input type="date" id="datepicker1" ng-model="journey.sdate" ng-change='checksdate(journey.sdate)' class="form-control" style="width: 150px;" placeholder="Check In">
+                </div>
+                <div class="col-md-6">
+                    <input type="date" id="datepicker2" ng-model="journey.edate" ng-change="checkedate(journey.sdate,journey.edate)" class="form-control" style="width: 150px;" placeholder="Check Out">
+                </div>-->
+                <div class="col-md-5">
+
+                    <input type="date" ng-model="journey.sdate" ng-change="checksdate(journey.sdate)" class="form-control" style="width: 150px;" placeholder="Check In">
+                    <span ng-hide="errmsg" style="color: #FF5A5F"><small>Invalid Date</small></span>
+                </div>
+                <div class="col-md-6">
+                    <input type="date" ng-model="journey.edate" ng-change="checkedate(journey.sdate, journey.edate)" class="form-control" style="width: 150px;" placeholder="Check Out">
+                    <span ng-hide="errmsg1" style="color: #FF5A5F"><small>Invalid Date</small></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4" style="margin-left: -31px;">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <div class="row">
+                        <label style="padding-left: 15px;padding-right: 20px">Guests</label>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+
+                                <select class="ui dropdown form-control" id="property" style="padding-left: 20px;margin-left: 20px;width:120px;border: transparent;" placeholder="1 Guest" ng-model="journey.guest">
+                                    <option value="1 Guest">1 Guest</option>
+                                    <option value="2 Guests">2 Guests</option>
+                                    <option value="3 Guests">3 Guests</option>
+                                    <option value="4 Guests">4 Guests</option>
+                                    <option value="5 Guests">5 Guests</option>
+                                    <option value="6 Guests">6 Guests</option>
+                                    <option value="7 Guests">7 Guests</option>
+                                    <option value="8 Guests">8 Guests</option>
+                                    <option value="9 Guests">9 Guests</option>
+                                    <option value="10 Guests">10 Guests</option>
+                                    <option value="10+ Guests">10+ Guests</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-lg" style="margin-left: 40px;margin-top: 5px;background-color: #FF5A5F;color: white;font-weight: bold" ng-click="searchOptions()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-offset-1 col-md-10">
+    <h3 style="font-weight: 100">Explore the world</h3>
+</div>
+<div class="col-md-offset-1 col-md-10">
+    <div class="col-md-6">
+        <a href="#">
+            <img class="img-thumbnail" src="../images/paris.jpg" style="border: 0px;padding-top: 25px;width: 100%;height: auto">
+        </a>
+    </div>
+    <div class="col-md-6">
+        <div class="col-md-6">
+            <div class="row">
+                <a href="#">
+                    <img class="img-thumbnail" src="../images/rome.jpg" style="border: 0px;padding-top: 25px;width: 100%;height: auto">
+                </a>
+            </div>
+            <div class="row">
+                <a href="#">
+                    <img class="img-thumbnail" src="../images/lisbon.jpg" style="border: 0px;padding-top: 25px;width: 100%;height: auto">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <a href="#">
+                    <img class="img-thumbnail" src="../images/la.jpg" style="border: 0px;padding-top: 25px;width: 100%;height: auto">
+                </a>
+            </div>
+            <div class="row">
+                <a href="#">
+                    <img class="img-thumbnail" src="../images/amsterdam.jpg" style="border: 0px;padding-top: 25px;width: 100%;height: auto">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

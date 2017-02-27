@@ -1,0 +1,153 @@
+<style>
+    .left {
+        float:left;
+    }
+
+    .right {
+        float:right;
+    }
+
+    .center {
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    #language {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #currency {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #room_type, #property {
+        border-radius: 3px;
+        width: 250px;
+        height: 40px;
+    }
+
+    #location {
+        border-radius: 3px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .rightcol {
+        /* position: fixed;
+         top: 0%;
+         left: 0%; */
+        overflow:hidden;
+    }
+
+    .leftcol {
+        /* border:solid 1px red;
+        position: relative;
+        top: 0%;
+        left: 50%;  */
+        overflow-y: scroll;
+        height: 280px;
+    }
+
+    #closeness {
+        width: 450px;
+        padding-left: 5px;
+        height: 100px;
+    }
+
+
+    .card {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+        border: 1px solid #778899;
+        background-color: #FFFFF0;
+        text-align: left;;
+        border-radius: 5px;
+        height: 320px;
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+</style>
+<div ng-controller="titlecontroller">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="3.html">AirBNB</a>
+        </div>
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<div class="modal-body-row row-lg-7">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-lg-5 leftcol">
+        <div class="row-md-4 center">
+        </div>
+        <br>
+        <div class="row-md-4 form-group">
+            <div class="row-lg-12 " >
+                <h4>Give your place a title</h4>
+                <div class="text">
+                    <input type="text" id="closeness" value="" placeholder="Give a title" ng-model="title">
+                </div>
+                <br><hr>
+                <div>
+                    <h4>Examples from similar listings near you</h4>
+                </div>
+                <hr>
+                <div ng-repeat="i in properties">
+                    <h5>{{i.ptitle}}</h5>
+                    <p>{{i.num_rating}} reviews. {{i.category}}</p>
+                    <hr>
+                </div>
+
+            </div>
+        </div>
+        <div class="row-md-4" >
+        </div>
+    </div>
+    <div class="col-lg-6 rightcol">
+        <div class="row-lg-4">
+        </div>
+        <div class="row-lg-4">
+            <div class="card">
+                <div class="card-block">
+
+                    <h4 class="card-title">Image here</h4>
+                    <h5>How travelers use titles</h5>
+                    <p class="card-text">Travelers skim over the title when searching for places on Airbnb. Make titles catchy and short.</p>
+                    <p class="card-text">The best titles mention what’s unique about your place—where it’s close to, if it’s big or cosy, if you have a special amenity—and what style it is—like “bright”, “hipster”, “family-style”.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-lg-3">
+        <p>.</p>
+        <hr>
+    </div>
+    <div class="row-lg-2">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-2">
+            <a href="become_a_host.html" type="button" class="btn btn-block btn-default gradient">Back</a>
+        </div>
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-2">
+            <a type="button" class="btn btn-block btn-danger gradient" ng-click="updateTitle()">Next</a>
+        </div>
+    </div>
+</div>
+</div>

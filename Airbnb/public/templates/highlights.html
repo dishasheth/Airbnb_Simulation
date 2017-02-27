@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="icon" href="logo.jpg" />
+  <title>Vacation Rentals, Homes, Apartments & Rooms for Rent - Airbnb</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-social.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+.center {
+  text-align: left;
+  vertical-align: middle;
+}
+
+#language {
+  border-radius: 3px;
+  width: 100px;
+  height: 30px;
+}
+
+#currency {
+  border-radius: 3px;
+  width: 100px;
+  height: 30px;
+}
+
+#room_type, #property {
+  border-radius: 3px;
+  width: 250px;
+  height: 40px;
+}
+
+#location {
+  border-radius: 3px;
+  width: 300px;
+  height: 40px;
+}
+
+.rightcol {
+  /* position: fixed;
+   top: 0%;
+   left: 0%; */
+   overflow:hidden;
+}
+
+.leftcol {
+   /* border:solid 1px red;
+   position: relative;
+   top: 0%;
+   left: 50%;  */
+   overflow-y: scroll;
+   height: 280px;
+}
+
+#closeness {
+  width: 400px;
+  padding-left: 5px;
+  height: 50px;
+}
+
+
+.card {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #778899;
+  background-color: #FFFFF0;
+  text-align: left;;
+  border-radius: 5px;
+  height: 320px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+</style>
+<body>
+  <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="3.html">AirBNB</a>
+        </div>
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+    <div class="modal-body-row row-lg-7">
+      <div class="col-xs-1">
+      </div>
+        <div class="col-lg-5 leftcol">
+            <div class="row-md-4 center">
+            </div>
+            <br>
+            <div class="row-md-4 form-group">
+              <div class="row-lg-12 " >
+              <h4>Start building your description</h4>
+              <div class="text">
+              <input type="text" id="closeness" value="" placeholder="My place is close to">
+            </div>
+            <br>
+            <div class="text">
+              <input type="text" id="closeness" value="" placeholder="You'll love my place because of">
+            </div>
+            <br><hr>
+            <h4>My place is good for</h4>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Couples</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Solo adventures</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Business travellers</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Families with kids</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Big groups</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Furry friends(pets)</label>
+            </div>
+            </div>
+            </div>
+            <div class="row-md-4" >
+            </div>
+          </div>
+        <div class="col-lg-6 rightcol">
+          <div class="row-lg-4">
+          </div>
+          <div class="row-lg-4">
+          <div class="card">
+          <div class="card-block">
+
+              <h4 class="card-title">Image here</h4>
+              <p class="card-text">This description will appear at the top of your listing page. We’ve started you out with a few common questions guests have when looking for a place.</p>
+              <p class="card-text">You’ll be able to edit and write more next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-lg-3">
+      <p>.</p>
+      <hr>
+    </div>
+    <div class="row-lg-2">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-2">
+        <a href="photos.html" type="button" class="btn btn-block btn-default gradient">Back</a>
+      </div>
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-2">
+        <a href="description.html" type="button" class="btn btn-block btn-danger gradient">Next</a>
+      </div>
+    </div>
+</body>
+</html>

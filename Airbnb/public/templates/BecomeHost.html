@@ -1,0 +1,131 @@
+<style>
+    .left {
+        float:left;
+    }
+
+    .right {
+        float:right;
+    }
+
+    .center {
+        text-align: left;;
+        vertical-align: middle;
+    }
+
+    #language {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #currency {
+        border-radius: 3px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #room_type, #guest_count {
+        border-radius: 3px;
+        width: 150px;
+        height: 35px;
+    }
+
+    #location {
+        border-radius: 3px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .card {
+        width: 200px;
+        border-radius: 5px;
+        height: 110px;
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+</style>
+<div ng-controller="becomehost">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="3.html">AirBNB</a>
+        </div>
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<div class="modal-body-row row-lg-7">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-lg-5">
+        <div class="row-md-4 center">
+            <h2>Hi, {{name}}! Lets get you ready to become a host.</h2>
+        </div>
+        <br><hr>
+        <div class="row-md-4 form-group">
+            <div class="row-lg-6 form-inline" >
+                <h3>What kind of place do you have?</h3>
+                <select class="ui dropdown form-control" ng-model="placetype" id="room_type">
+                    <option value="Entire Place">Entire Place</option>
+                    <option value="Private Room">Private Room</option>
+                    <option value="Shared room">Shared room</option>
+                </select>
+                <select class="ui dropdown form-control" id="guest_count" ng-model="guests">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+
+                </select>
+            </div>
+            <div class="row-lg-6">
+                <br>
+
+                <div class="form-group">
+                    <label for="addr">Address:</label>
+                    <input type="text" class="form-control" id="addr" ng-model="address">
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" class="form-control" id="city" ng-model="city">
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" class="form-control" id="state" ng-model="state">
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">Zip code:</label>
+                    <input type="text" class="form-control" id="zipcode" ng-model="zipcode">
+                </div>
+
+
+                </form>
+
+                <br>
+                <a ng-click="continue()" type="button" class="btn btn-warning gradient">Continue</a>
+            </div>
+        </div>
+        <br><hr>
+        <div class="row-md-4 card hoverable text-xs-center" style="background-color: #AFEEEE">
+            <div class="card-block">
+                <h5 class="card-title">Listing for a week, we think you could earn</h5>
+                <h3 class="card-text">$223</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <img src="../images/airbnbright.jpg" alt="airbnb logo" height = "600" width="580">
+    </div>
+</div>
+
+</div>

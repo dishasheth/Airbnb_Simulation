@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Airbnb</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="../stylesheets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="../javascripts/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../stylesheets/bootstrap/js/bootstrap.js"></script>
+    <script src="../angularjs/clientScript.js"></script>
+    <script src="../angularjs/ngAutocomplete.js"></script>
+    <script src="../javascripts/FileSaver.js"></script>
+
+    <!--//UI Router script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+
+    <!--<script type="text/javascript">-->
+
+
+      <!--(function ($) {-->
+        <!--$(document).ready(function(){-->
+
+          <!--// hide .navbar first-->
+          <!--$(".navbar").hide();-->
+
+          <!--// fade in .navbar-->
+          <!--$(function () {-->
+            <!--$(window).scroll(function () {-->
+              <!--// set distance user needs to scroll before we fadeIn navbar-->
+              <!--if ($(this).scrollTop() > 400) {-->
+                <!--$('.navbar').fadeIn();-->
+              <!--} else {-->
+                <!--$('.navbar').fadeOut();-->
+              <!--}-->
+            <!--});-->
+
+
+          <!--});-->
+
+        <!--});-->
+      <!--}(jQuery));-->
+    <!--</script>-->
+
+  </head>
+
+
+  <body ng-app="clientModule">
+
+    <!--<h1><%= title %></h1>-->
+    <!--<p>Welcome to <%= title %></p>-->
+    <!--<div ui-view="header"></div>-->
+    <div ui-view="index"></div>
+
+  </body>
+
+
+</html>

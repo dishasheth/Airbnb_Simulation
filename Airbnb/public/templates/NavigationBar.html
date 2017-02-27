@@ -1,0 +1,435 @@
+
+<style>
+	.divider {
+		width: 400px;
+		text-align: center;
+	}
+
+	.divider hr {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		width: 40%;
+	}
+	/*hr{*/
+	/*text-align: center;*/
+	/*margin-top: 10px;*/
+	/*width:400px;*/
+	/*}*/
+	#left {
+		float: left;
+	}
+
+	#right {
+		float: right;
+	}
+
+	#left1 {
+		float: left;
+	}
+
+	#right1 {
+		float: right;
+	}
+
+	.top {
+		float: top;
+	}
+
+	#signup-dp {
+		min-width: 250px;
+		padding: 14px 14px 0;
+		overflow: hidden;
+		background-color: rgba(255, 255, 255, .8);
+	}
+
+	#signup-dp .help-block {
+		font-size: 12px
+	}
+
+	#signup-dp .bottom {
+		background-color: rgba(255, 255, 255, .8);
+		border-top: 1px solid #ddd;
+		clear: both;
+		padding: 14px;
+	}
+
+	#signup-dp .social-buttons {
+		margin: 5px 0
+	}
+
+	#signup-dp .social-buttons a {
+		width: 49%;
+	}
+
+	#signup-dp .form-group {
+		margin-bottom: 10px;
+	}
+
+	.btn-fb {
+		color: #fff;
+		background-color: #3b5998;
+		padding: 20px;
+	}
+
+	.btn-fb:hover {
+		color: #fff;
+		background-color: #496ebc
+	}
+
+	.btn-googleplus:link, .btn-googleplus:visited {
+		color: #fff;
+		padding: 20px;
+	}
+
+	.btn-googleplus:active, .btn-googleplus:hover {
+		background: #b72213;
+		color: #fff;
+	}
+
+	.btn-googleplus {
+		background: #E93F2E;
+		border-radius: 5px;
+		color: #fff;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #b72213;
+	}
+
+	.btn-email {
+		border-radius: 5px;
+		border-width: 1px;
+		border-style: solid;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding: 20px;
+	}
+
+	.btn {
+		border-radius: 5px;
+		margin-bottom: 15px;
+	}
+
+	.btn-log_in {
+		border-color: red;
+		background-color: #ffffff;
+		width: 20%;
+	}
+
+	.btn-signup {
+		margin-top: 7px;
+		padding: 15px;
+		border-radius: 5px;
+		margin-bottom: 15px;
+	}
+
+	@media ( max-width :768px) {
+		#signup-dp {
+			background-color: inherit;
+			color: #fff;
+		}
+		#signup-dp .bottom {
+			background-color: inherit;
+			border-top: 0 none;
+		}
+	}
+
+	h6 {
+		padding: 5px;
+	}
+
+	@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+	/*** LOGIN MODAL ***/
+	.signupmodal-container {
+		padding: 30px;
+		max-width: 450px;
+		width: 100% !important;
+		background-color: #ffffff;
+		margin: 0 auto;
+		border-radius: 2px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		overflow: hidden;
+		font-family: helvetica;
+		margin-top: 75px;
+	}
+
+	/*** LOGIN MODAL ***/
+	.loginmodal-container {
+		padding: 30px;
+		max-width: 450px;
+		width: 100% !important;
+		background-color: #ffffff;
+		margin: 0 auto;
+		border-radius: 2px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		overflow: hidden;
+		font-family: helvetica;
+		margin-top: 75px;
+	}
+</style>
+<div ng-controller="loginController">
+	<nav class="navbar navbar-default navbar-fixed-top"
+		 style="background-color: #ffffff; height: 65px;">
+
+		<div class="col-md-3" style="margin-top: -9px; margin-left: -15px">
+			<button class="navbar-btn"
+					style="height: 65px; background-color: #ffffff;border:0px">
+				<img src="../images/logo-1.png" style="width: 150px; height: 45px;" />
+			</button>
+		</div>
+		<div class="col-md-6">
+			<!--<div class="col-md-1" style="margin-left: -220px">
+            <img src="../images/search.png" height="35" width="35"/>
+            </div>-->
+			<div class="col-md-12 input-group"
+				 style="height: 65px; margin-left: -218px">
+
+
+				<input type="text" class="form-control" placeholder="Where to?"
+					   style="height: 60px;border:0px; z-index: 0; width: 1020px;"> <span
+					class="input-group-btn">
+					<button type="button" class="btn btn-default"
+							style="border: solid; border-color: #c4c4c4; margin-left: -170px; z-index: 1"><a ui-sref="becomehost">Become
+						a Host</a></button>
+				</span>
+			</div>
+
+		</div>
+		<div class="col-md-1" style="margin-top: -9px;">
+			<button class="navbar-btn"
+					style="height: 65px; width: 100%;border:0px; background-color: #ffffff; width: 120px; margin-left: 30px;font-stretch:expanded;font-size: 18px">
+			<strong style="color: #484848">Help</strong>	<img src="../images/help.png" height="24" width="24" />
+
+			</button>
+
+		</div>
+		<div class="col-md-1" style="margin-top: -9px;"
+			 ng-hide="authenticated">
+			<!--<a href="#"  class="navbar-btn" style="height: 65px;width:100%;background-color: #ffffff;width: 120px;margin-left: 20px" data-toggle="modal" data-target="#signup-modal">Sign Up</a>-->
+			<button class="navbar-btn"
+					style="height: 65px; width: 100%; background-color: #ffffff; width: 120px;border: 0px; margin-left: 20px;font-stretch:expanded;font-size: 18px"
+					data-toggle="modal" data-target="#signup-modal"><strong style="color: #484848">Sign Up</strong></button>
+		</div>
+
+
+		<!--Logic for modal-->
+
+		<div class="col-md-1" style="margin-top: -9px;"
+			 ng-hide="authenticated">
+			<button class="navbar-btn"
+					style="height: 65px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border: 0px;font-stretch:expanded;font-size: 18px"
+					data-toggle="modal" data-target="#login-modal"><strong style="color: #484848">Log In</strong></button>
+		</div>
+		<div class="col-md-1" ng-show="authenticated" style="font-family: Helvetica;margin-top: -9px">
+
+			<button class="navbar-btn"
+					style="height: 65px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px"><strong style="color: #484848">Messages</strong></button>
+
+
+		</div>
+		<div class="col-md-1" ng-show="authenticated" style="font-family: Helvetica;margin-top: -9px" >
+			<div class="pure-menu pure-menu-horizontal">
+				<ul class="pure-menu-list">
+					<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+						<a href="#" id="menuLink1" class="pure-menu-link" style="height: 50px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px;margin-top:20px"><strong style="color: #484848">{{current_user}}</strong></a>
+						<ul class="pure-menu-children">
+							<li class="pure-menu-item"><a ui-sref="host_dashboard({user_id:user_id})" class="pure-menu-link" style="height: 50px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px;margin-top:20px">My Profile</a></li>
+							<li class="pure-menu-item"><a ui-sref="host_dashboard({user_id:user_id})" class="pure-menu-link" style="height: 50px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px;margin-top:20px">Trips</a></li>
+							<li class="pure-menu-item"><a ui-sref="host_dashboard({user_id:user_id})" class="pure-menu-link" style="height: 50px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px;margin-top:20px">My Listings</a></li>
+							<li class="pure-menu-item"><a href="" ng-click="signout();" class="pure-menu-link" style="height: 50px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px;margin-top:20px">Sign Out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!--<button class="navbar-btn"-->
+					<!--style="height: 65px; width: 100%; background-color: #ffffff; width: 120px; margin-left: 10px;border:0px;font-stretch:expanded;font-size: 18px;"><strong style="color: #484848">Trips</strong></button>-->
+
+
+
+
+		</div>
+		<!--<div class="col-md-1" ng-show="authenticated" >Messages</div>-->
+	</nav>
+	<div >
+		<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog"
+			 aria-labelledby="myModalLabel" aria-hidden="true"
+			 style="display: none;">
+			<div class="modal-dialog">
+				<div class="signupmodal-container">
+					<div class="form-group">
+						<a href="https://www.facebook.com" class="btn btn-block btn-fb"><i
+								class="left fa fa-facebook-official" style="font-size: 20px"></i>Sign
+							up with Facebook</a> <a
+							href="https://accounts.google.com/ServiceLogin?service=mail&continue=https://mail.google.com/mail/#identifier"
+							title="Google+" class="btn btn-block btn-googleplus"><i
+							class="left top fa fa-google-plus fa-fw" style="font-size: 20px"></i>Sign
+						up with Google</a>
+					</div>
+					<div class="divider">
+						<hr id="left" />
+						or
+						<hr id="right" />
+					</div>
+					<a href="#" class="btn btn-warning btn-block btn-email"
+					   data-toggle="modal" data-target="#emailsignup-modal"> <span
+							class="left glyphicon glyphicon-envelope"></span> Sign up with
+						Email
+					</a>
+					<hr style="text-align: center; margin-top: 10px; width: 400px;">
+					<div class="bottom text-align">
+						Already have an Airbnb account?
+						<button type="button" class="right btn btn-log_in" ng-click="showlogin();">
+							<span style="color: red">Log in</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="emailsignup-modal" tabindex="-1"
+			 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+			 style="display: none;" >
+			<div class="modal-dialog">
+				<div class="signupmodal-container">
+					<div class="form-group">
+						<div class="email-signup main-center">
+							<form class="form-horizontal"  ng-submit="register();">
+								<br>
+								<div class="form-group">
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<input type="text" class="form-control" name="name"
+												   id="fname" placeholder="First name" ng-model="user.fname"
+												   required /> <span class="input-group-addon"><i
+												class="fa fa-user fa" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<input type="text" class="form-control" name="name"
+												   id="lname" placeholder="Last name" ng-model="user.lname"
+												   required /> <span class="input-group-addon"><i
+												class="fa fa-user fa" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<input type="email" class="form-control" name="email"
+												   id="regemail" placeholder="Email address"
+												   ng-model="user.email" required /> <span
+												class="input-group-addon"><i
+												class="fa fa-envelope fa" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<input type="password" class="form-control" name="password"
+												   id="password" placeholder="New Password"
+												   ng-model="user.password" required /> <span
+												class="input-group-addon"><i class="fa fa-lock fa-lg"
+																			 aria-hidden="true"></i></span>
+										</div>
+									</div>
+
+									<div class="col-md-12" >
+										<div class="alert alert-danger" ng-hide="error">
+											<strong>User already registered!</strong>
+										</div></div>
+								</div>
+								<h6>
+									By signing up, I agree to Airbnb’s <span
+										style="color: #008B8B"> Terms of Service,
+										Nondiscrimination Policy, Payments Terms of Service, Privacy
+										Policy, Guest Refund Policy, and Host Guarantee Terms. </span>
+								</h6>
+								<button type="submit"
+										class="right btn-block btn-danger btn-signup">Sign Up</button>
+								<hr>
+								<div class="bottom text-align">
+									Already have an Airbnb account?
+									<button type="button" class="right btn btn-log_in">
+										<span style="color: red" ng-click="showlogin();">Log in</span>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
+			 aria-labelledby="myModalLabel" aria-hidden="true"
+			 style="display: none;">
+			<div class="modal-dialog">
+				<div class="loginmodal-container">
+					<div class="form-group">
+						<a href="https://www.facebook.com" class="btn btn-block btn-fb"><i
+								class="left fa fa-facebook-official" style="font-size: 20px"></i>
+							Facebook</a> <a
+							href="https://accounts.google.com/ServiceLogin?service=mail&continue=https://mail.google.com/mail/#identifier"
+							title="Google+" class="btn btn-block btn-googleplus"><i
+							class="left top fa fa-google-plus fa-fw" style="font-size: 20px"></i>
+						Google</a>
+					</div>
+					<div class="divider">
+						<hr class="left" />
+						or
+						<hr class="right" />
+					</div>
+					<form  ng-submit="login();">
+						<div class="form-group ">
+							<label class="contr
+							ol-label " for="email"> </label>
+						</div>
+						<div class="form-group ">
+							<div class="input-group ">
+								<input class="form-control changing" id="email" ng-model="login.email"
+									   placeholder="Email address" type="email" required />
+								<div class="input-group-addon">
+									<span class="glyphicon glyphicon-envelope"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group ">
+								<input type="password" class="form-control changing"
+									   ng-model="login.password" placeholder="Password" required>
+								<div class="input-group-addon">
+									<span class="glyphicon glyphicon-lock"></span>
+								</div>
+							</div>
+							<div>
+								<div class="help-block text-align">
+									<div class="checkbox text-align">
+										<label> <input type="checkbox"> Remember me
+										</label> <a class="right" href="">Forgot password ?</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<button type="submit"
+											class="btn btn-success btn-block btn-login">Log in</button>
+								</div>
+								<label ng-hide="invalid_login">Invalid username or password</label>
+					</div></div></form>
+					<hr>
+					<div class="bottom text-align">
+						Don't have an account ? <a href="#" class="right btn btn-warning"
+												   data-toggle="modal" data-target="#signup-modal">Sign Up</a>
+						<!--<button type="submit" class="right btn btn-warning"><a href="./signup.html">Sign Up</a> </button>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

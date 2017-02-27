@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../stylesheets/bootstrap/css/bootstrap.css">
+
+    <!---->
+
+
+
+
+
+
+    <!---->
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../stylesheets/bootstrap/js/bootstrap.js"></script>
+    <!--<script type="text/javascript">-->
+
+
+        <!--(function ($) {-->
+            <!--$(document).ready(function(){-->
+
+                <!--// hide .navbar first-->
+                <!--$(".navbar").hide();-->
+
+                <!--// fade in .navbar-->
+                <!--$(function () {-->
+                    <!--$(window).scroll(function () {-->
+                        <!--// set distance user needs to scroll before we fadeIn navbar-->
+                        <!--if ($(this).scrollTop() > 400) {-->
+                            <!--$('.navbar').fadeIn();-->
+                        <!--} else {-->
+                            <!--$('.navbar').fadeOut();-->
+                        <!--}-->
+                    <!--});-->
+
+
+                <!--});-->
+
+            <!--});-->
+        <!--}(jQuery));-->
+    <!--</script>-->
+
+    <style>
+        /* Note: Try to remove the following lines to see the effect of CSS positioning */
+        .affix {
+            top: 0px;
+        }
+
+    </style>
+    <style>
+
+        input.ng-invalid.ng-dirty{
+
+            border: 3px solid #ffb400;
+        }
+
+    </style>
+</head>
+<body>
+<!--<div ng-include="'./templates/NavigationBar.html'"></div>-->
+    <div class="container-fluid" ng-controller="checkoutCtrl">
+        <!--Beginning of left checkout-->
+        <!--Top Panel start-->
+        <div class="col-md-offset-1 col-md-6">
+        <div class="panel panel-collapse" style="border: 1px solid black;margin-top: 50px">
+            <div class="panel-body">
+                <div class="col-md-10">
+                <strong style="font-family: Helvetica;font-size: 18px">Rare Find </strong>
+                <p style="font-family: Helvetica; font-size: 18px" >This place of {{owner}} is booked generally</p>
+                </div>
+                <div class="col-md-2">
+                <img src="../images/brainstorming.png" height="50" width="50"/>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-4" style="margin-top: 50px"> </div>
+        <div class="col-md-1"  style="margin-top: 50px"></div>
+
+        <!--Top panel end-->
+
+        <div class="col-md-offset-1 col-md-6">
+
+            <div class="panel panel-collapse" id="panel1" style="">
+                <h3 class="panel-heading" style="font-family: Helvetica;font-size: 30px">1. About Your Trip</h3>
+                <div class="panel-body">
+                    <div class="row">
+                    <img class="img-circle" ng-src="http://placehold.it/1200x600/fffccc/000&text=Two" height="70" width="70">
+                    Your host, {{hostname}}
+                        </div><br>
+                    <div class="row">
+                            <p class="" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded"><strong>Who's Coming </strong></p>
+
+                    </div>
+                    <div class="row">
+                        <input type="text" class="form-control" style="width:300px;height:50px" value={{num_guests}} disabled>
+                        <!--<select class="form-control" ng-model="booking.guests" style="width:300px;height:50px" placeholder={{num_guests}}>-->
+                            <!--<option>1 Guest</option>-->
+                            <!--<option>2 Guest</option>-->
+                            <!--<option>3 Guest</option>-->
+                            <!--<option>4 Guest</option>-->
+                            <!--<option>5 Guest</option>-->
+                            <!--<option>6 Guest</option>-->
+                            <!--<option>7 Guest</option>-->
+                            <!--<option>8 Guest</option>-->
+                            <!--<option>9 Guest</option>-->
+                        <!--</select>-->
+
+                    </div>
+                    <div class="row"><br>
+
+                        <label for="comment" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded">Say hello
+                            to your host and tell them why you’re coming:</label>
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Visiting family or friends? Seeing the sights?This helps your plan for your trip." ng-model="story"></textarea>
+                    </div>
+                  <br><br><br>
+
+                        <div class="panel">
+<div class="panel-body" style="background-color: #f9f9f9">
+    <img class="col-md-offset-5" src="../images/approve.png" height="50" width="50"/>
+    <br><br><br>
+    <div class="row">
+        <table>
+            <tr>
+<div class="col-md-offset-1 col-md-9" style="font-family: Helvetica;font-size: 18px;">No Smoking</div>
+                <div class="col-md-1">
+                    <img src="../images/checked.png" height="30" width="30"/>
+                </div>
+                <div class="col-md-1"></div>
+                <!--<p style="font-family: Helvetica;font-size: 18px;margin-left: 40px">No Smoking-->
+                <!--<img class="col-md-offset-10 " src="../images/checked.png" height="30" width="30"/></p>-->
+            </tr>
+            <br>
+            <hr>
+
+            <tr>
+                <div class="col-md-offset-1 col-md-9" style="font-family: Helvetica;font-size: 18px;">Not suitable for pets</div>
+                <div class="col-md-1">
+                    <img src="../images/checked.png" height="30" width="30"/>
+                </div>
+                <div class="col-md-1"></div>
+                <!--<p style="font-family: Helvetica;font-size: 18px;margin-left: 40px">No Smoking-->
+                <!--<img class="col-md-offset-10 " src="../images/checked.png" height="30" width="30"/></p>-->
+            </tr>
+<br>
+            <hr>
+            <tr>
+                <div class="col-md-offset-1 col-md-9" style="font-family: Helvetica;font-size: 18px;">Not Parties or Events</div>
+                <div class="col-md-1">
+                    <img src="../images/checked.png" height="30" width="30"/>
+                </div>
+                <div class="col-md-1"></div>
+            </tr>
+            <br>
+            <hr>
+            <tr>
+                <div class="col-md-offset-1 col-md-9" style="font-family: Helvetica;font-size: 18px;">Check-in is after 3PM</div>
+                <div class="col-md-1">
+                    <img src="../images/checked.png" height="30" width="30"/>
+                </div>
+                <div class="col-md-1"></div>
+            </tr>
+            <br>
+            <hr>
+            <tr>
+                <div class="col-md-offset-1 col-md-9" style="font-family: Helvetica;font-size: 18px;">No fire</div>
+                <div class="col-md-1">
+                    <img src="../images/checked.png" height="30" width="30"/>
+                </div>
+                <div class="col-md-1"></div>
+            </tr>
+        </table>
+    </div>
+</div>
+
+                        </div>
+
+
+
+                </div>
+            </div>
+            <button class="btn btn-danger" data-toggle="collapse" data-target="#panel1">Next</button>
+
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-3">
+                <div class="panel panel-primary" style="border: 1px solid lightgray;width: 300px" data-spy="affix" data-offset-top="300">
+                    <div class="panel-heading" style="background-color: #000000">
+                        <label style="font-size: 23px; font-family:'Microsoft Sans Serif'">
+                            ${{costpn}}
+                        </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Night
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+
+                            <tbody>
+                            <tr>
+                                <td> <label>Check In</label> </td>
+
+
+
+                            </tr>
+                            <tr>
+                                <td> <input class="form-control" type="date" placeholder="mm/dd/yyyy" ng-model="datein" disabled="disabled"> </td>
+
+
+                            </tr>
+                            <tr>
+                                <td> <label>Check Out</label> </td>
+                                <td></td>
+                                <td></td>
+
+
+                            </tr>
+                            <tr>
+                                <td> <input class="form-control" type="date" placeholder="mm/dd/yyyy" ng-model="dateout" disabled="disabled"> </td>
+
+
+                            </tr>
+                            <tr>
+                                <td>Guests</td>
+                                <td>{{num_guests}}</td>
+                            </tr>
+
+                            <tr>
+
+                                <td>${{costpn}} X {{num_days}} nights</td>
+                                <td> ${{totalcost}} </td>
+
+
+                            </tr>
+                            </tbody>
+
+                        </table>
+
+                        <button class="btn" style="background-color: #ff5a5f; width: 100%;color: white" ng-click="booking()"><b>Instant Booking</b></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+<hr>
+
+        <!--2nd Panel start-->
+        <form id="myform" name="myform" novalidate>
+        <div class="col-md-offset-1 col-md-6">
+        <div class="panel panel-collapse">
+            <h3 class="panel-heading" style="font-family: Helvetica;font-size: 30px">2. Payment</h3>
+<p class="panel-body">
+<div class="row">
+
+    <p style="font-family: Helvetica;font-size: 18px;font-stretch: expanded"> <strong>You’ll only be charged if your request is accepted by the host. They’ll have 24 hours to accept or decline.</strong></p>
+<br>
+
+</div>
+    <div class="row">
+        <label for="country" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded">Billing Country</label>
+        <br>
+        <select id="country" class="form-control" style="height: 50px; width: 300px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" ng-model="country">
+            <option>United States</option>
+        </select>
+    </div>
+    <br>
+    <div class="row">
+        <label for="cardtype" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded">Payment type</label>
+        <br>
+        <select id="cardtype" class="form-control" style="height: 50px; width: 300px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" ng-model="paytype">
+            <option>Master Card</option>
+        </select>
+    </div>
+    <br>
+    <div class="row">
+        <label for="cno" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded">Card Number *</label>
+        <br>
+       <input class="form-control" name="cno" type="number" ng-model="cno" aria-describedby="basic-addon2" id="cno" required ng-minlength="15" ng-maxlength="16" ng-model="cno" style="width: 400px ;height:50px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" >
+        <span ng-show="myform.cno.$dirty && myform.cno.$invalid" style="color:#ffb400"><strong>Check your card number</strong></span>
+    </div>
+
+
+
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+        <label for="exp" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded">Expiry Date *</label></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><label for="cvv" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded" >Security code *</label></div>
+        <br>
+        <div class="col-md-2" style="margin-left: 0px">
+        <select class="form-control" type="" ng-model="exmonth" id="exp" style="width: 100px ;height:50px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" required>
+            <option active>MM</option>
+            <option>01</option><option>02</option>
+            <option>03</option>
+            <option>04</option><option>05</option>
+            <option>06</option>
+            <option>07</option>
+            <option>08</option>
+            <option>09</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+
+
+        </select>
+        </div>
+        <div class="col-md-2" style="">
+        <select class="form-control" type="" ng-model="exyr" id="expy" style="width: 100px ;height:50px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" required >
+            <option active>YYYY</option>
+            <option>2016</option>
+            <option>2017</option>
+            <option>2019</option><option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+            <option>2024</option>
+            <option>2025</option>
+            <option>2026</option>
+            <option>2027</option>
+            <option>2028</option>
+
+
+
+
+        </select>
+        </div>
+        <div class="col-md-offset-4 col-md-2" style="">
+            <input type="number" name="cvv" class="form-control" id="cvv" style="width: 100px ;height:50px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" ng-minlength="3" ng-maxlength="3" required ng-model="cvv">
+            <span ng-show="myform.cvv.$dirty && myform.cvv.$invalid" style="color:#ffb400">Incorrect CVV</span>
+
+
+
+    </div><br>
+    <div class="col-md-6"><label for="fname" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded;"><strong>First Name</strong></label></div>
+    <div class="col-md-6"><label for="lname" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded">Last Name</label></div>
+    <br><div class="row">
+        <div class="col-md-6">
+            <input class="form-control" type="text"id="fname" style="width: 250px ;height:50px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" required ng-model="fname">
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" type="text" id="lname" style="width: 250px ;height:50px;font-family: Helvetica;font-size: 18px;font-stretch: expanded" required ng-model="lname">
+        </div>
+    </div><br>
+<div class="row">
+    <div class="col-md-3" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded;"><strong>Postal Code *</strong></div></div>
+    <div class="row">
+    <div class="col-md-3"><input type="number" name="pin" class="form-control" ng-model="pincode" required ng-minlength="5" ng-maxlength="5" style="width: 200px ;height:50px">
+
+        <span ng-show="myform.pin.$dirty && myform.pin.$invalid" style="color:#ffb400"><strong>Invali PIN Code</strong></span>
+    </div></div>
+
+    <br>
+    <br>
+    <div class="col-md-12" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded;">
+
+        <input type="checkbox" required>I agree to the House Rules, Cancellation Policy, and to the Guest Refund Policy. I also agree to pay the total amount shown, which includes Service Fees.
+    </div>
+         <p></p>
+            <button class="btn btn-danger" style="font-family: Helvetica;font-size: 18px;font-stretch: expanded;" ng-click="book()" ng-disabled="myform.pin.$invalid ||myform.cno.$invalid||myform.cvv.$invalid"><b style="color:white">Confirm and Pay</b></button>
+
+
+
+    </div>
+            </div></form>
+
+</div>
+
+
+
+        </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <!--end of left checkout-->
+        <!--start of right checkout-->
+
+        <!--end of right checkout-->
+    </div>
+
+</body>
+</html>

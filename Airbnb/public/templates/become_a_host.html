@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="logo.jpg" />
+  <title>Vacation Rentals, Homes, Apartments & Rooms for Rent - Airbnb</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-social.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+.center {
+  text-align: left;;
+  vertical-align: middle;
+}
+
+#language {
+  border-radius: 3px;
+  width: 100px;
+  height: 30px;
+}
+
+#currency {
+  border-radius: 3px;
+  width: 100px;
+  height: 30px;
+}
+
+#room_type, #guest_count {
+  border-radius: 3px;
+  width: 150px;
+  height: 35px;
+}
+
+#location {
+  border-radius: 3px;
+  width: 300px;
+  height: 40px;
+}
+
+.card {
+  width: 200px;
+  border-radius: 5px;
+  height: 110px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+</style>
+<body>
+  <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="3.html">AirBNB</a>
+        </div>
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+    <div class="modal-body-row row-lg-7">
+      <div class="col-xs-1">
+      </div>
+        <div class="col-lg-5">
+            <div class="row-md-4 center">
+              <h2>Hi, Aishwarya! Lets get you ready to become a host.</h2>
+            </div>
+            <br><hr>
+            <div class="row-md-4 form-group">
+              <div class="row-lg-6 form-inline" >
+              <h3>What kind of place do you have?</h3>
+              <select class="ui dropdown form-control" id="room_type">
+                <option value="">Entire Place</option>
+                <option value="1">Private Room</option>
+                <option value="2">Shared room</option>
+              </select>
+              <select class="ui dropdown form-control" id="guest_count">
+                <option value=""> for 1 guest</option>
+                <option value="1"> for 2 guests</option>
+                <option value="1"> for 3 guests</option>
+                <option value="1"> for 4 guests</option>
+                <option value="1"> for 5 guests</option>
+                <option value="1"> for 6 guests</option>
+                <option value="1"> for 7 guests</option>
+                <option value="1"> for 8 guests</option>
+                <option value="1"> for 9 guests</option>
+                <option value="1"> for 10 guests</option>
+                <option value="1"> for 11 guests</option>
+                <option value="1"> for 12 guests</option>
+                <option value="1"> for 13 guests</option>
+                <option value="1"> for 14 guests</option>
+                <option value="1"> for 15 guests</option>
+                <option value="1"> for 16 guests</option>
+              </select>
+            </div>
+            <div class="row-lg-6">
+              <br>
+              <input type="text" class="form-control" id="location" placeholder="e.g. San Fransisco">
+              <br>
+              <a href="room.html" type="button" class="btn btn-warning gradient">Continue</a>
+            </div>
+            </div>
+            <br><hr>
+            <div class="row-md-4 card hoverable text-xs-center" style="background-color: #AFEEEE">
+              <div class="card-block">
+                <h5 class="card-title">Listing for a week, we think you could earn</h5>
+                <h3 class="card-text">$223</h3>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-6">
+          <img src="airbnbright.jpg" alt="airbnb logo" height = "600" width="680">
+        </div>
+    </div>
+    <div class="row-lg-3">
+      <p>.</p>
+      <hr>
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-2">
+        <div class="row-lg-6">
+          <br>
+          <select class="ui dropdown" id="language">
+            <option value="">Language</option>
+            <option value="1">English</option>
+            <option value="2">Hindi</option>
+            <option value="3">Spanish</option>
+          </select>
+        </div>
+        <br>
+        <div class="row-lg-6">
+          <select class="ui dropdown" id="currency">
+            <option value="">USD</option>
+            <option value="1">PEN</option>
+            <option value="2">JPY</option>
+            <option value="3">MAD</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <h5><b>Airbnb</b></h5>
+        <div class="ui list">
+          <div class="item"><a href="#">About</a></div>
+          <div class="item"><a href="#">Careers</a></div>
+          <div class="item"><a href="#">Press</a></div>
+          <div class="item"><a href="#">Policies</a></div>
+          <div class="item"><a href="#">Help</a></div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h5><b>Discover</b></h5>
+        <div class="ui list">
+          <div class="item"><a href="#">Trust and Safety</a></div>
+          <div class="item"><a href="#">Referrals</a></div>
+          <div class="item"><a href="#">Gift Cards</a></div>
+          <div class="item"><a href="#">Airbnb Action</a></div>
+          <div class="item"><a href="#">Business Travel</a></div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h5><b>Hosting</b></h5>
+        <div class="ui list">
+          <div class="item"><a href="#">Why Host</a></div>
+          <div class="item"><a href="#">Hospitality</a></div>
+          <div class="item"><a href="#">Responsible Hosting</a></div>
+          <br>
+        </div>
+      </div>
+      <p>.</p>
+      <hr>
+    </div>
+    <div class="row-lg-2">
+      <div class="col-lg-10">
+      </div>
+      <div class="row-lg-2 ">
+        <a href="https://www.facebook.com" class="btn btn-fb" ><i class="left fa fa-facebook-official" style="font-size:20px"></i></a>
+        <a href="https://www.twitter.com" class="btn btn-tw" ><i class="left fa fa-twitter" style="font-size:20px"></i></a>
+      </div>
+    </div>
+</body>
+</html>
